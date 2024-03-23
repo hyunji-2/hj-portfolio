@@ -11,6 +11,7 @@
         <div class="header_inner">
             <h1>HYUNJI LEE</h1>
             <nav class="gnb">
+                <button type="button" class="btn_menu"><span>MENU</span></button>
                 <ul>
                     <li class="active"><a href="#aboutme">ABOUT ME</a></li>
                     <li><a href="#work">경력사항</a></li>
@@ -219,12 +220,17 @@
             }
         }
         window.addEventListener('load', () => {
-            const headerHeight = document.querySelector('.header').offsetHeight;
+            let headerHeight = document.querySelector('.header').offsetHeight;
             const gnb = document.querySelector('.gnb');
+
+            gnb.querySelector('.btn_menu').addEventListener('click', () => {
+                gnb.classList.contains('open') ? gnb.classList.remove('open') : gnb.classList.add('open');
+            });
 
             gnb.querySelectorAll('a').forEach((v, idx) =>
                 v.addEventListener('click', (e) => {
                     e.preventDefault();
+                    gnb.classList.contains('open') && gnb.classList.remove('open');
                     const target = document.querySelector(e.target.getAttribute('href'));
                     window.scrollTo({
                         top: idx === 0 ? 0 : target.offsetTop - headerHeight,
@@ -247,6 +253,13 @@
                 }
             }
             window.addEventListener('scroll', throttle(() => evScroll(window.scrollY)));
+
+            window.addEventListener('resize', throttle(() => {
+                headerHeight = document.querySelector('.header').offsetHeight;
+                if(window.innerWidth > 720){
+                    gnb.classList.contains('open') && gnb.classList.remove('open');
+                }
+            }));
         });
     </script>
 </body>
