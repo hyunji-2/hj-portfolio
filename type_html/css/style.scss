@@ -1,0 +1,199 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@600&display=swap");
+@import "variable";
+
+html {
+  -webkit-text-size-adjust: none;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  padding-top: 70px;
+}
+body,
+button,
+a {
+  font-size: 15px;
+  font-family: "Noto Sans KR";
+  letter-spacing: -0.75px;
+  color: $colors_black;
+}
+div,
+p,
+span,
+h1,
+h2,
+h3,
+h4,
+ul,
+ol,
+li,
+a {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+li {
+  list-style: none;
+}
+img {
+  border: 0;
+  vertical-align: top;
+}
+
+.title {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding-right: 15px;
+  border-bottom: 3px solid $colors_darkGray;
+  font-size: 28px;
+  line-height: 0.8;
+  color: $colors_darkGray;
+  + .list_tag {
+    margin-top: 0;
+  }
+}
+.list_tag {
+  margin-top: 10px;
+  li {
+    display: inline-block;
+    margin: 2px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    border: 1px solid $colors_lightGray;
+    background-color: $colors_white;
+    font-size: 12px;
+    color: $colors_gray2;
+    vertical-align: top;
+    transition: all 0.2s;
+    &:hover {
+      background-color: $colors_darkPrimary;
+      border-color: $colors_darkPrimary;
+      color: $colors_white;
+    }
+  }
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: $colors_white;
+  &_inner {
+    display: flex;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px 30px;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+  }
+  h1 {
+    line-height: 50px;
+  }
+  .gnb {
+    ul:after {
+      content: "";
+      display: none;
+      clear: both;
+    }
+    li {
+      float: left;
+      transition: all 0.3s;
+      + li {
+        margin-left: 10px;
+      }
+    }
+    a {
+      display: block;
+      padding: 3px 5px;
+      font-size: 20px;
+      text-decoration: none;
+    }
+    .active {
+      a {
+        color: $colors_primary;
+        border-top: 1px solid $colors_primary;
+        border-bottom: 1px solid $colors_primary;
+      }
+    }
+  }
+}
+.footer {
+  padding: 20px;
+  text-align: center;
+  address {
+    font-size: 11px;
+    font-style: normal;
+    color: $colors_gray;
+  }
+}
+
+.content {
+  padding: 56px 20px;
+  background-color: $colors_bg;
+  &_inner {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  article + article {
+    padding-top: 80px;
+  }
+}
+.box_company {
+  overflow: hidden;
+  border-radius: 10px;
+  border: 2px solid $colors_gray;
+  background-color: $colors_white;
+  + .box_company {
+    margin-top: 30px;
+  }
+  .company_info {
+    padding: 16px;
+  }
+  .company_tit {
+    font-size: 20px;
+    font-weight: 500;
+    color: $colors_darkPrimary;
+  }
+  .txt_date {
+    font-size: 13px;
+    color: $colors_gray;
+  }
+  .company_detail {
+    padding: 16px 16px 20px;
+    border-top: 1px solid $colors_gray;
+    li {
+      padding-left: 10px;
+      text-indent: -10px;
+      &:before {
+        content: "";
+        display: inline-block;
+        width: 4px;
+        height: 4px;
+        margin-top: 10px;
+        margin-right: 5px;
+        border-radius: 50%;
+        background-color: $colors_gray2;
+        vertical-align: top;
+      }
+    }
+  }
+  .company_detail_tit {
+    padding-bottom: 4px;
+    font-weight: 500;
+    &:not(:first-of-type) {
+      margin-top: 20px;
+    }
+  }
+}
